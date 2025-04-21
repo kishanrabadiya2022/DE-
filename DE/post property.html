@@ -1,0 +1,293 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Property Post</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: var(--main-color);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: rgb(75, 16, 16);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+
+    header {
+      font-size: 3rem;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-shadow: 3px 3px 5px rgba(181, 17, 17, 0.3);
+    }
+
+    .property-form {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 500px;
+      transition: all 0.5s ease;
+      transform: translateY(50px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #030303;
+      font-size: 1.8rem;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    input[type="url"],
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    input[type="url"]:focus,
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    textarea:focus {
+      border: 2px solid #00bcd4;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: #00bcd4;
+      color: white;
+      font-size: 1.1rem;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+      transform: translateY(-2px);
+    }
+
+    .property-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .property-item {
+      background-color: #171515;
+      width: 100%;
+      max-width: 350px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      transform: scale(1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .property-item:hover {
+      transform: scale(1.05);
+    }
+
+    .property-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .property-item h3 {
+      font-size: 1.6rem;
+      color: #fff;
+      margin-top: 15px;
+      padding: 0 10px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .property-item p {
+      color: #fff;
+      padding: 0 10px;
+      text-align: center;
+      font-size: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .property-item .price {
+      font-size: 1.2rem;
+      color: #00bcd4;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .property-item .description {
+      color: #ddd;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .property-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://c8.alamy.com/comp/EMEX1Y/real-estate-background-for-sale-property-concept-stock-vector-EMEX1Y.jpg'); /* Default background image */
+      background-size: cover;
+      background-position: center;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
+      .property-form {
+        padding: 25px;
+      }
+
+      .property-item {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      Real Estate Property Portal
+    </header>
+
+    <section class="property-form">
+      <h2>Post Your Property</h2>
+      <form id="propertyForm">
+        <div class="input-group">
+          <label for="propertyImage">Property Image URL:</label>
+          <input type="url" id="propertyImage" required placeholder="Enter image URL">
+        </div>
+        <div class="input-group">
+          <label for="propertyTitle">Property Title:</label>
+          <input type="text" id="propertyTitle" required placeholder="Enter title">
+        </div>
+        <div class="input-group">
+          <label for="propertyPrice">Price (in INR):</label>
+          <input type="number" id="propertyPrice" required placeholder="Enter price">
+        </div>
+        <div class="input-group">
+          <label for="propertyDescription">Description:</label>
+          <textarea id="propertyDescription" required placeholder="Enter property description"></textarea>
+        </div>
+        <button type="submit">Post Property</button>
+      </form>
+    </section>
+
+    <section id="postedProperties" class="property-list">
+      <h2>Posted Properties</h2>
+      <div id="propertyContainer"></div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById("propertyForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      // Collect form data
+      const propertyImage = document.getElementById("propertyImage").value;
+      const propertyTitle = document.getElementById("propertyTitle").value;
+      const propertyPrice = document.getElementById("propertyPrice").value;
+      const propertyDescription = document.getElementById("propertyDescription").value;
+
+      // Create a new property item
+      const propertyItem = document.createElement("div");
+      propertyItem.classList.add("property-item");
+
+      // Add background image from user input, fallback to a default image
+      propertyItem.style.setProperty('--property-bg', propertyImage || 'https://via.placeholder.com/350x200');
+
+      // Add content to the new property item
+      propertyItem.innerHTML = `
+        <div class="overlay"></div>
+        <h3>${propertyTitle}</h3>
+        <p class="price">₹${propertyPrice}</p>
+        <p class="description">${propertyDescription}</p>
+      `;
+
+      // Add the new property item to the list
+      document.getElementById("propertyContainer").appendChild(propertyItem);
+
+      // Clear form fields
+      document.getElementById("propertyForm").reset();
+    });
+  </script>
+
+</body>
+</html>

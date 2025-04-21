@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+   
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <nav class="navbar nav-1">
+      <section class="flex">
+         <a href="home.html" class="logo"><i class="fas fa-house"></i>MyHome</a>
+
+         <ul>
+            <li><a href="price.html">house price predict<i class="fas fa-paper-plane"></i></a></li>
+         </ul>
+      </section>
+   </nav>
+
+   <nav class="navbar nav-2">
+      <section class="flex">
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+         <div class="menu">
+            <ul>
+               <li><a href="search.html">buy<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="view_property.html">house</a></li>
+                     <li><a href="listings.html">flat</a></li>
+                     <li><a href="listings.html">shop</a></li>
+                     
+                  </ul>
+               </li>
+               <li><a href="#">sell<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="post property.html">post property</a></li>
+                   
+                  </ul>
+               </li>
+               
+               <li><a href="#">help<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="about.html">about us</a></i></li>
+                     <li><a href="contact.html">contact us</a></i></li>
+                     <li><a href="contact.html#faq">FAQ</a></i></li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+
+         <ul>
+            <li><a href="#">saved <i class="far fa-heart"></i></a></li>
+            <li><a href="#">account <i class="fas fa-angle-down"></i></a>
+               <ul>
+                  <li><a href="login.html">login</a></li>
+                  <li><a href="register.html">register</a></li>
+               </ul>
+            </li>
+         </ul>
+      </section>
+   </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>House Price Predictor</title>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: Arial, sans-serif;
+      }
+
+      html, body {
+         height: 100%;
+         width: 100%;
+         scroll-behavior: smooth;
+         overflow-x: hidden;
+      }
+
+      /* Home section styling */
+      .home {
+         position: relative;
+         min-height: 100vh;
+         width: 800000000vw;
+         background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         color: white;
+         text-align: center;
+      }
+
+      .home::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         height: 100%;
+         width: 100%;
+         background: rgba(0, 0, 0, 0.65);
+         z-index: 0;
+      }
+
+      .home .content {
+         position: relative;
+         z-index: 1;
+         padding: 20px;
+         animation: fadeIn 2s ease-in;
+         max-width: 90%;
+      }
+
+      .home h1 {
+         font-size: 4.5rem;
+         margin-bottom: 20px;
+      }
+
+      .home p {
+         font-size: 1.8rem;
+         margin-bottom: 30px;
+      }
+
+      .btn {
+         background-color: #ff5e57;
+         padding: 15px 35px;
+         border: none;
+         color: white;
+         font-size: 1.3rem;
+         border-radius: 6px;
+         text-decoration: none;
+         transition: background 0.3s ease;
+         cursor: pointer;
+      }
+
+      .btn:hover {
+         background-color: #ff3b2e;
+      }
+
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(30px);
+         }
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      @media (max-width: 768px) {
+         .home h1 {
+            font-size: 2.8rem;
+         }
+
+         .home p {
+            font-size: 2.5rem;
+         }
+
+         .btn {
+            font-size: 1rem;
+            padding: 12px 25px;
+         }
+      }
+
+      /* Dummy section */
+      #search {
+         padding: 100px 20px;
+         text-align: center;
+         background-color: #f2f2f2;
+      }
+
+      #search h2 {
+         font-size: 3rem;
+         margin-bottom: 20px;
+      }
+   </style>
+</head>
+<body>
+
+   <!-- home section starts -->
+   <section class="home" id="home">
+      <div class="content">
+         <h1 id="main-heading"></h1>
+         <p id="sub-text"></p>
+         <a href="#search" class="btn">Get Started</a>
+      </div>
+   </section>
+   <!-- home section ends -->
+
+   <!-- dummy search section -->
+   <section id="search">
+      <h2>Start Your Property Search Here</h2>
+      <p>This is the section you land on after clicking "Get Started". Connect this with your form later.</p>
+   </section>
+
+   <!-- typing animation script -->
+   <script>
+      const text = "Find Your Dream Home in Gujarat";
+      const subtext = "Explore the best properties with real-time price prediction";
+      let i = 0;
+      let j = 0;
+
+      const heading = document.getElementById("main-heading");
+      const sub = document.getElementById("sub-text");
+
+      heading.innerHTML = "";
+      sub.innerHTML = "";
+
+      function typeHeading() {
+         if (i < text.length) {
+            heading.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeHeading, 60);
+         } else {
+            typeSub();
+         }
+      }
+
+      function typeSub() {
+         if (j < subtext.length) {
+            sub.innerHTML += subtext.charAt(j);
+            j++;
+            setTimeout(typeSub, 35);
+         }
+      }
+
+      window.onload = typeHeading;
+   </script>
+
+</body>
+</html>
+
+
+
+<!-- home section ends -->
+
+<!-- services section starts  -->
+
+<section class="services">
+
+   <h1 class="heading">our services</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <img src="images/icon-1.png" alt="">
+         <h3>buy house</h3>
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-2.png" alt="">
+         <h3>rent house</h3>
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-3.png" alt="">
+         <h3>sell house</h3>
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-4.png" alt="">
+         <h3>flats and buildings</h3>
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-5.png" alt="">
+         <h3>shops and malls</h3>
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-6.png" alt="">
+         <h3>24/7 service</h3>
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- listings section starts  -->
+
+<section class="listings">
+
+   <h1 class="heading">latest listings</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <div class="admin">
+            <h3>j</h3>
+            <div>
+               <p>john deo</p>
+               <span>10-11-2022</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>house</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/house-img-1.webp" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>Shriji Bag Rajkot, india - 401303</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+      <div class="box">
+         <div class="admin">
+            <h3>j</h3>
+            <div>
+               <p>john deo</p>
+               <span>10-11-2022</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>flat</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/house-img-2.webp" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>Kamrej Surat, india - 401303</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+      <div class="box">
+         <div class="admin">
+            <h3>j</h3>
+            <div>
+               <p>john deo</p>
+               <span>10-11-2022</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>flat</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/house-img-3.jpg" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>Gandhinagar sec-28, india - 401303</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+   </div>
+
+   <div style="margin-top: 2rem; text-align:center;">
+      <a href="listings.html" class="inline-btn">view all</a>
+   </div>
+
+</section>
+
+<!-- listings section ends -->
+
+
+
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<footer class="footer">
+
+   <section class="flex">
+
+      <div class="box">
+         <a href="tel:1234567890"><i class="fas fa-phone"></i><span>123456789</span></a>
+         <a href="tel:1112223333"><i class="fas fa-phone"></i><span>1112223333</span></a>
+         <a href="mailto:shaikhanas@gmail.com"><i class="fas fa-envelope"></i><span>shaikhanas@gmail.com</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>Ahemdabad, india - 400104</span></a>
+      </div>
+
+      <div class="box">
+         <a href="home.html"><span>home</span></a>
+         <a href="about.html"><span>about</span></a>
+         <a href="contact.html"><span>contact</span></a>
+         <a href="listings.html"><span>all listings</span></a>
+         <a href="#"><span>saved properties</span></a>
+      </div>
+
+      <div class="box">
+         <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
+
+      </div>
+
+   </section>
+
+   <div class="credit">&copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!</div>
+
+</footer>
+
+<!-- footer section ends -->
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

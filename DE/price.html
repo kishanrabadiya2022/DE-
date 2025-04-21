@@ -1,0 +1,278 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gujarat House Price Predictor 2024</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      padding: 20px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      background-color: rgba(0, 51, 102, 0.9);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      animation: slideDown 1.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+      animation: scaleUp 1.5s ease-in-out;
+    }
+
+    @keyframes scaleUp {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      margin-top: 5px;
+      background: #f9f9f9;
+    }
+
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005599;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: green;
+      text-align: center;
+      animation: fadeInResult 1s ease-in;
+    }
+
+    @keyframes fadeInResult {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 15px;
+      border-radius: 8px;
+    }
+    selection{
+   background-color: var(--main-color);
+   color: var(--white);
+}
+  </style>
+</head>
+
+<body>
+  <section class="flex">
+  <a href="home.html" class="logo"><i class="fas fa-house"></i>MyHome</a>
+</section>
+
+<style>
+  :root {
+    main-color:#DA2C32; /* Define your main color */
+    --white: #ffffff;      /* Define white color */
+  }
+  
+  .flex {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--main-color);
+  }
+  
+  .logo {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+</style>
+  <header>
+
+    <h1>Gujarat House Price Predictor - 2024</h1>
+    <p>Accurately Predict Property Prices Across All Gujarat Districts</p>
+  </header>
+
+  <div class="container">
+    <div class="form-group">
+      <label for="district">Select District</label>
+      <select id="district">
+        <option value="">-- Select --</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="area">Area (in sq.ft)</label>
+      <input type="number" id="area" placeholder="e.g., 1200">
+    </div>
+
+    <div class="form-group">
+      <label for="bedrooms">Number of Bedrooms</label>
+      <input type="number" id="bedrooms" placeholder="e.g., 3">
+    </div>
+
+    <div class="form-group">
+      <label for="age">Property Age (in years)</label>
+      <input type="number" id="age" placeholder="e.g., 5">
+    </div>
+
+    <button onclick="predictPrice()">Predict Price</button>
+
+    <div class="result" id="result"></div>
+    <div class="error" id="error"></div>
+  </div>
+
+  <footer>
+    &copy; 2024 Gujarat House Price Predictor. Created by <a href="https://github.com/kishan-rabadiya" target="_blank" style="color: #003366; text-decoration: none; font-weight: 600;">Rabadiya Kishan</a>.<br>
+    Data based on 2024 estimated housing trends across Gujarat districts.
+  </footer>
+
+  <script>
+    const basePrices2024 = {
+      "Ahmedabad": 6800,
+      "Surat": 6000,
+      "Vadodara": 5700,
+      "Rajkot": 5400,
+      "Bhavnagar": 5000,
+      "Jamnagar": 5100,
+      "Gandhinagar": 6200,
+      "Junagadh": 4800,
+      "Anand": 4900,
+      "Mehsana": 4600,
+      "Kutch": 4300,
+      "Banaskantha": 4200,
+      "Patan": 4100,
+      "Navsari": 5200,
+      "Valsad": 5300,
+      "Dahod": 4000,
+      "Panchmahal": 4100,
+      "Bharuch": 5500,
+      "Narmada": 4200,
+      "Sabarkantha": 4400,
+      "Aravalli": 4300,
+      "Morbi": 4900,
+      "Surendranagar": 4700,
+      "Devbhoomi Dwarka": 4600,
+      "Amreli": 4500,
+      "Botad": 4400,
+      "Chhota Udaipur": 3900,
+      "Dang": 3800,
+      "Gir Somnath": 4600,
+      "Tapi": 4000,
+      "Mahisagar": 4100
+    };
+
+    const districtSelect = document.getElementById("district");
+    const districts = Object.keys(basePrices2024);
+    districts.sort();
+
+    districts.forEach(district => {
+      const option = document.createElement("option");
+      option.value = district;
+      option.textContent = district;
+      districtSelect.appendChild(option);
+    });
+
+    function predictPrice() {
+      const district = document.getElementById("district").value;
+      const area = parseFloat(document.getElementById("area").value);
+      const bedrooms = parseInt(document.getElementById("bedrooms").value);
+      const age = parseInt(document.getElementById("age").value);
+
+      const errorEl = document.getElementById("error");
+      const resultEl = document.getElementById("result");
+      errorEl.textContent = "";
+      resultEl.textContent = "";
+
+      if (!district || isNaN(area) || isNaN(bedrooms) || isNaN(age)) {
+        errorEl.textContent = "Please fill in all fields correctly.";
+        return;
+      }
+
+      let basePrice = basePrices2024[district];
+      let bedroomFactor = 1 + (bedrooms - 2) * 0.05;
+      let ageFactor = 1 - Math.min(age * 0.01, 0.3);
+
+      let price = area * basePrice * bedroomFactor * ageFactor;
+      resultEl.textContent = `Estimated Price: ₹${price.toLocaleString()} (INR)`;
+    }
+  </script>
+  
+</body>
+
+</html>
